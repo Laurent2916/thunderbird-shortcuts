@@ -2,6 +2,8 @@
 
 Small addons to add URL shortcuts to Thunderbird.
 
+![preview screenshot](assets/preview.webp)
+
 ## Usage
 
 ### Build with nix (flakes)
