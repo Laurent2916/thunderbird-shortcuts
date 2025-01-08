@@ -77,12 +77,20 @@ so why not have them in the same place?
 Even though Thunderbird uses the same engine as Firefox, some features are not enabled.
 You can auto-accept notifications by setting the following in `about:config`:
 ```
-"permissions.default.desktop-notification" = 1
+permissions.default.desktop-notification = 1
 ```
 
 ### How can I use the webcam/microphone?
 
 I haven't figured this one yet, if you have any idea, please let me know.
+
+### Some site are saying that my browser is not supported?
+
+A workaround that generally works is to change the user-agent of Thunderbird to that of a real browser.
+For example, in `about:config`:
+```
+general.useragent.override = "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0"
+```
 
 ## Acknowledgements
 
