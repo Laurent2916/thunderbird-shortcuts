@@ -18,6 +18,7 @@ jobs:
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@main
         with:
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
           pr-assignees: Laurent2916
           pr-reviewers: Laurent2916
           pr-title: "Update flake.lock" # Title of PR to be created
