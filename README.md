@@ -11,8 +11,8 @@ Small addons to add URL shortcuts to Thunderbird.
 `flake.nix` already contains some examples, you can build them like so:
 
 ```shell
-nix build .#youtube-music
-nix build .#discord
+nix build github:Laurent2916/thunderbird-shortcuts#youtube-music
+nix build github:Laurent2916/thunderbird-shortcuts#discord
 ...
 ```
 
