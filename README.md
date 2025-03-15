@@ -6,6 +6,11 @@ Small addons to add URL shortcuts to Thunderbird.
 
 ## Usage
 
+### Webpage
+
+You can easily create a new shortcut by using the
+[Thunderbird Shortcut Generator](https://laurent2916.github.io/thunderbird-shortcuts/).
+
 ### Build with nix (flakes)
 
 `flake.nix` already contains some examples, you can build them like so:
