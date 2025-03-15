@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thunderbird Shortcut Generator</title>
+
+    <style>
+        body {
+            max-width: 38rem;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 1rem;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Thunderbird Shortcut Generator</h1>
+
+    <form id="extensionForm">
+        <label for="name">Extension Name:</label>
+        <input type="text" id="name" required />
+
+        <label for="url">Target URL:</label>
+        <input type="url" id="url" required />
+
+        <label for="logo">Logo:</label>
+        <input type="file" id="logoFile" accept="image/*" required />
+
+        <button type="submit">Generate Extension</button>
+    </form>
+
+    <a id="downloadLink" hidden download="extension.xpi">Download Extension</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script>
+        document.getElementById('extensionForm').addEventListener('submit', async function (event) {
+            try {
+                event.preventDefault();
+
+                // get values
+                const name = document.getElementById('name').value;
+                const url = document.getElementById('url').value;
+                const logoFile = document.getElementById('logoFile').files[0];
+
+                // generate slugs
+                const slugHyphen = name.toLowerCase().replace(/ /g, '-');
+                const slugUnderscore = name.toLowerCase().replace(/ /g, '_');
+                const id = `${slugHyphen}.thunderbird.shortcut`;
+
+                // generate script
+                const scriptContent = `browser.spaces.create("${slugUnderscore}","${url}",{title:"${name}",defaultIcons:"logo.svg"});`;
+
+                // generate manifest
+                const manifestContent = JSON.stringify({
+                    manifest_version: 2,
+                    name: `Shortcut - ${name}`,
+                    description: `Shortcut to ${name}.`,
+                    version: "1.0.0",
+                    author: "Laureηt",
+                    browser_specific_settings: {
+                        gecko: {
+                            id: `@${id}`,
+                            strict_min_version: "106.0"
+                        }
+                    },
+                    icons: {
+                        "32": "logo.svg"
+                    },
+                    background: {
+                        scripts: ["script.js"]
+                    }
+                });
+
+                // create logo blob
+                let logoBlob = await new Promise((resolve) => {
+                    const fileReader = new FileReader();
+                    fileReader.onload = e => resolve(new Blob([e.target.result], { type: 'image/svg+xml' }));
+                    fileReader.readAsText(logoFile);
+                });
+
+                // create zip file
+                const zip = new JSZip();
+                zip.file('script.js', scriptContent);
+                zip.file('manifest.json', manifestContent);
+                zip.file('logo.svg', logoBlob);
+
+                // create download link
+                const content = await zip.generateAsync({ type: 'blob' });
+                const link = document.getElementById('downloadLink');
+                link.href = URL.createObjectURL(content);
+                link.hidden = false;
+
+                link.click();
+            } catch (error) {
+                console.error(error);
+                alert(`Error: ${error.message}`);
+            }
+        });
+    </script>
+</body>
+
+</html>
