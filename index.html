@@ -95,7 +95,7 @@
                 // create logo blob
                 let logoBlob = await new Promise((resolve) => {
                     const fileReader = new FileReader();
-                    fileReader.onload = e => resolve(new Blob([e.target.result], { type: 'image/svg+xml' }));
+                    fileReader.onload = e => resolve(new Blob([e.target.result], { type: logoFile.type }));
                     fileReader.readAsText(logoFile);
                 });
 
