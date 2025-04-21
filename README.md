@@ -21,7 +21,7 @@ Examples:
 - [Google Calendar](https://laurent2916.github.io/thunderbird-shortcuts/?name=Google%20Calendar&url=https://calendar.google.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg)
 - [Google Mail](https://laurent2916.github.io/thunderbird-shortcuts/?name=Google%20Mail&url=https://mail.google.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg)
 - [ProtonMail](https://laurent2916.github.io/thunderbird-shortcuts/?name=ProtonMail&url=https://mail.proton.me/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/0/0c/ProtonMail_icon.svg)
-- [Hacker News](https://laurent2916.github.io/thunderbird-shortcuts/?name=Hacker%20News&url=https://news.ycombinator.com/&logoUrl=https://news.ycombinator.com/y18.svg)
+- [Hacker News](https://laurent2916.github.io/thunderbird-shortcuts/?name=Hacker%20News&url=https://news.ycombinator.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/b/b2/Y_Combinator_logo.svg)
 - [GitHub](https://laurent2916.github.io/thunderbird-shortcuts/?name=GitHub&url=https://github.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg)
 - [HuggingFace](https://laurent2916.github.io/thunderbird-shortcuts/?name=HuggingFace&url=https://huggingface.co/&logoUrl=https://huggingface.co/front/assets/huggingface_logo.svg)
 - [Twitter](https://laurent2916.github.io/thunderbird-shortcuts/?name=Twitter&url=https://twitter.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg)

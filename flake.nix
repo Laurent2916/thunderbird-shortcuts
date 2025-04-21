@@ -195,8 +195,8 @@
         name = "Hacker News";
         url = "https://news.ycombinator.com/";
         logo = pkgs.fetchurl {
-          url = "https://news.ycombinator.com/y18.svg";
-          sha256 = "sha256-4bZiK26hXx9I39pucgJlzUJpgdKnrh+dfd64QJiXxv8=";
+          url = "https://upload.wikimedia.org/wikipedia/commons/b/b2/Y_Combinator_logo.svg";
+          sha256 = "sha256-c1bRlAPqDAIxuZOcfHpPKTF0XPB0YD/INyt2Y01jEuo=";
         };
       };
       github = lib.genShortcut {
