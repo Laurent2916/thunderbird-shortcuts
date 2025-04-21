@@ -39,13 +39,17 @@
 
     <form id="extensionForm">
         <label for="name">Extension Name:</label>
-        <input type="text" id="name" required />
+        <input type="text" id="name" placeholder="My Extension" required />
 
         <label for="url">Target URL:</label>
-        <input type="url" id="url" required />
+        <input type="url" id="url" placeholder="https://example.com" required />
 
         <label for="logo">Logo:</label>
-        <input type="file" id="logoFile" accept="image/*" required />
+        <input type="file" id="logoFile" accept="image/*" />
+
+        <label for="logoUrl">Logo URL:</label>
+        <input type="url" id="logoUrl" placeholder="https://example.com/logo.svg" />
+        <small>Note: If you provide a logo file, it will be used instead of the URL.</small>
 
         <button type="submit">Generate Extension</button>
     </form>
@@ -62,6 +66,7 @@
                 const name = document.getElementById('name').value;
                 const url = document.getElementById('url').value;
                 const logoFile = document.getElementById('logoFile').files[0];
+                const logoUrl = document.getElementById('logoUrl').value;
 
                 // generate slugs
                 const slugHyphen = name.toLowerCase().replace(/ /g, '-');
@@ -93,11 +98,20 @@
                 });
 
                 // create logo blob
-                let logoBlob = await new Promise((resolve) => {
-                    const fileReader = new FileReader();
-                    fileReader.onload = e => resolve(new Blob([e.target.result], { type: logoFile.type }));
-                    fileReader.readAsText(logoFile);
-                });
+                let logoBlob;
+                if (logoFile) {
+                    logoBlob = await new Promise((resolve) => {
+                        const fileReader = new FileReader();
+                        fileReader.onload = e => resolve(new Blob([e.target.result], { type: logoFile.type }));
+                        fileReader.readAsArrayBuffer(logoFile);
+                    });
+                } else if (logoUrl) {
+                    const response = await fetch(logoUrl);
+                    const blob = await response.blob();
+                    logoBlob = new Blob([blob], { type: blob.type });
+                } else {
+                    throw new Error('No logo provided.');
+                }
 
                 // create zip file
                 const zip = new JSZip();
