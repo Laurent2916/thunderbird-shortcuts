@@ -217,6 +217,15 @@
           sha256 = "sha256-SwXVGO/x2mYDs89/vphubkSzEqbTOe/cUIHxDJnR4RQ=";
         };
       };
+      spotify = lib.genShortcut {
+        inherit pkgs;
+        name = "Spotify";
+        url = "https://open.spotify.com/";
+        logo = pkgs.fetchurl {
+          url = "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg";
+          sha256 = "sha256-cphMjj/3K8ydH2iezzLqTadLdLJ8vxNB+PNt5oaz67s=";
+        };
+      };
     });
   };
 }
