@@ -144,6 +144,7 @@
                 const content = await zip.generateAsync({ type: 'blob' });
                 const link = document.getElementById('downloadLink');
                 link.href = URL.createObjectURL(content);
+                link.download = `${slugHyphen}.xpi`;
                 link.hidden = false;
 
                 link.click();
