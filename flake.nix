@@ -108,6 +108,15 @@
           sha256 = "sha256-K/up+bdoIXa5ltb1H4XKO1EnLggr/Z+H9jzukfX8jQs=";
         };
       };
+      youtube = lib.genShortcut {
+        inherit pkgs;
+        name = "Youtube";
+        url = "https://www.youtube.com/";
+        logo = pkgs.fetchurl {
+          url = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg";
+          sha256 = "sha256-fROAuewbDLM/ZhsgM9E77KfETCxAiabRTElVX/4/Ir8=";
+        };
+      };
       slack = lib.genShortcut {
         inherit pkgs;
         name = "Slack";
