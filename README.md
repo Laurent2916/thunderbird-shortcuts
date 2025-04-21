@@ -11,6 +11,23 @@ Small addons to add URL shortcuts to Thunderbird.
 You can easily create a new shortcut by using the
 [Thunderbird Shortcut Generator](https://laurent2916.github.io/thunderbird-shortcuts/).
 
+Examples:
+- [YouTube Music](https://laurent2916.github.io/thunderbird-shortcuts/?name=YouTube%20Music&url=https://music.youtube.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_icon.svg)
+- [YouTube](https://laurent2916.github.io/thunderbird-shortcuts/?name=YouTube&url=https://www.youtube.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg)
+- [Slack](https://laurent2916.github.io/thunderbird-shortcuts/?name=Slack&url=https://app.slack.com/client/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg)
+- [Discord](https://laurent2916.github.io/thunderbird-shortcuts/?name=Discord&url=https://discord.com/channels/@me&logoUrl=https://upload.wikimedia.org/wikipedia/fr/4/4f/Discord_Logo_sans_texte.svg)
+- [Element](https://laurent2916.github.io/thunderbird-shortcuts/?name=Element&url=https://app.element.io/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/c/cb/Element_%28software%29_logo.svg)
+- [ChatGPT](https://laurent2916.github.io/thunderbird-shortcuts/?name=ChatGPT&url=https://chat.openai.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg)
+- [Google Calendar](https://laurent2916.github.io/thunderbird-shortcuts/?name=Google%20Calendar&url=https://calendar.google.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg)
+- [Google Mail](https://laurent2916.github.io/thunderbird-shortcuts/?name=Google%20Mail&url=https://mail.google.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg)
+- [ProtonMail](https://laurent2916.github.io/thunderbird-shortcuts/?name=ProtonMail&url=https://mail.proton.me/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/0/0c/ProtonMail_icon.svg)
+- [Hacker News](https://laurent2916.github.io/thunderbird-shortcuts/?name=Hacker%20News&url=https://news.ycombinator.com/&logoUrl=https://news.ycombinator.com/y18.svg)
+- [GitHub](https://laurent2916.github.io/thunderbird-shortcuts/?name=GitHub&url=https://github.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg)
+- [HuggingFace](https://laurent2916.github.io/thunderbird-shortcuts/?name=HuggingFace&url=https://huggingface.co/&logoUrl=https://huggingface.co/front/assets/huggingface_logo.svg)
+- [Twitter](https://laurent2916.github.io/thunderbird-shortcuts/?name=Twitter&url=https://twitter.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg)
+- [Spotify](https://laurent2916.github.io/thunderbird-shortcuts/?name=Spotify&url=https://open.spotify.com/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg)
+- [Twitch](https://laurent2916.github.io/thunderbird-shortcuts/?name=Twitch&url=https://www.twitch.tv/&logoUrl=https://upload.wikimedia.org/wikipedia/commons/d/d3/Twitch_Glitch_Logo_Purple.svg)
+
 ### Build with nix (flakes)
 
 `flake.nix` already contains some examples, you can build them like so:
