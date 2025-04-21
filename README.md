@@ -40,7 +40,9 @@ You can also use the shortcuts directly in your own flakes:
 }
 ```
 
-2. You can then use the provided `package` and `lib`, for example with home-manager and thunderbird:
+2. You can then use the provided `package` and `lib`, for example with
+[home-manager](https://github.com/nix-community/home-manager) and
+[thunderbird](https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix):
 
 ```nix
 {system, pkgs, thunderbird-shortcuts, ...}: {
@@ -89,9 +91,9 @@ permissions.default.desktop-notification = 1
 
 I haven't figured this one yet, if you have any idea, please let me know.
 
-### Some site are saying that my browser is not supported?
+### Some site are saying my browser isn't supported?
 
-A workaround that generally works is to change the user-agent of Thunderbird to that of a real browser.
+A workaround that generally works is to change the user-agent of Thunderbird to spoof a real browser.
 For example, in `about:config`:
 ```
 general.useragent.override = "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0"
