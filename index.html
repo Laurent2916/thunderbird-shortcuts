@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thunderbird Shortcut Generator</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
     <style>
         body {
             max-width: 38rem;
@@ -56,17 +58,36 @@
 
     <a id="downloadLink" hidden download="extension.xpi">Download Extension</a>
 
-    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script>
-        document.getElementById('extensionForm').addEventListener('submit', async function (event) {
-            try {
-                event.preventDefault();
+        // parse URL parameters and autofill the form
+        function parseUrlParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const url = urlParams.get('url');
+            const logoUrl = urlParams.get('logoUrl');
 
-                // get values
-                const name = document.getElementById('name').value;
-                const url = document.getElementById('url').value;
-                const logoFile = document.getElementById('logoFile').files[0];
-                const logoUrl = document.getElementById('logoUrl').value;
+            if (name) document.getElementById('name').value = name;
+            if (url) document.getElementById('url').value = url;
+            if (logoUrl) document.getElementById('logoUrl').value = logoUrl;
+
+            // Auto-generate extension if all required parameters are provided
+            if (name && url && (logoUrl || document.getElementById('logoFile').files[0])) {
+                generateExtension({
+                    name,
+                    url,
+                    logoFile: document.getElementById('logoFile').files[0],
+                    logoUrl
+                });
+            }
+        }
+
+        // generate extension function
+        async function generateExtension(params) {
+            try {
+                const name = params.name;
+                const url = params.url;
+                const logoFile = params.logoFile;
+                const logoUrl = params.logoUrl;
 
                 // generate slugs
                 const slugHyphen = name.toLowerCase().replace(/ /g, '-');
@@ -130,6 +151,25 @@
                 console.error(error);
                 alert(`Error: ${error.message}`);
             }
+        }
+
+        // parse URL parameters when the page loads
+        document.addEventListener('DOMContentLoaded', parseUrlParams);
+
+        // handle form submission
+        document.getElementById('extensionForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            // get form values
+            const formParams = {
+                name: document.getElementById('name').value,
+                url: document.getElementById('url').value,
+                logoFile: document.getElementById('logoFile').files[0],
+                logoUrl: document.getElementById('logoUrl').value
+            };
+
+            // generate the extension
+            await generateExtension(formParams);
         });
     </script>
 </body>
