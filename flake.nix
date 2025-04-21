@@ -235,6 +235,15 @@
           sha256 = "sha256-cphMjj/3K8ydH2iezzLqTadLdLJ8vxNB+PNt5oaz67s=";
         };
       };
+      twitch = lib.genShortcut {
+        inherit pkgs;
+        name = "Twitch";
+        url = "https://www.twitch.tv/";
+        logo = pkgs.fetchurl {
+          url = "https://upload.wikimedia.org/wikipedia/commons/d/d3/Twitch_Glitch_Logo_Purple.svg";
+          sha256 = "sha256-fRisDEuDaFX5E9UeiOl8s88uDeq+iyHvXHRKXb5A4Hg=";
+        };
+      };
     });
   };
 }
