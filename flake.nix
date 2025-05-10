@@ -178,7 +178,7 @@
         url = "https://mail.google.com/";
         logo = pkgs.fetchurl {
           url = "https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg";
-          sha256 = "";
+          sha256 = "sha256-3hKd/5OcNBvmu1YXZXGclTYvAh25NuiKdFV2LmiH+wU=";
         };
       };
       protonmail = lib.genShortcut {
